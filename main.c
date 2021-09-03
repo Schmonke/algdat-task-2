@@ -101,6 +101,18 @@ int time_pow_func(double x, int n, pow_func powFunc, int iters, double *result)
 
 int main()
 {
+    printf("3^14\n");
+    printf("   libc: %f\n", pow_libc(3, 14));
+    printf("   lin:  %f\n", pow_lin(3, 14));
+    printf("   log:  %f\n", pow_log(3, 14));
+
+    printf("\n2^10\n");
+    printf("   libc: %f\n", pow_libc(2, 10));
+    printf("   lin:  %f\n", pow_lin(2, 10));
+    printf("   log:  %f\n", pow_log(2, 10));
+
+    printf("\n##### Performance Measurement #####\n");
+
     for (int i = 1; i <= 1000000000; i *= (i % 2 ? 3 : 10))
     {
         double x, result;
@@ -108,7 +120,7 @@ int main()
         x = 1.0000000010;
         n = i;
 
-        printf("\n%f^%d:\n", x, n);
+        printf("\n%.10f^%d:\n", x, n);
         ns = time_pow_func(x, n, pow_libc, MAX_ITERS, &result);
         printf("   libc   (%04dns): %f\n", ns, result);
         if (i > LINEAR_SKIP)
@@ -121,6 +133,6 @@ int main()
             printf("   linear (%04dns): %f\n", ns, result);
         }
         ns = time_pow_func(x, n, pow_log, MAX_ITERS, &result);
-        printf("   opti   (%04dns): %f\n", ns, result);
+        printf("   log    (%04dns): %f\n", ns, result);
     }
 }

@@ -102,14 +102,14 @@ int time_pow_func(double x, int n, pow_func powFunc, int iters, double *result)
 int main()
 {
     printf("3^14\n");
-    printf("   libc: %f\n", pow_libc(3, 14));
-    printf("   lin:  %f\n", pow_lin(3, 14));
-    printf("   log:  %f\n", pow_log(3, 14));
+    printf("   libc  : %f\n", pow_libc(3, 14));
+    printf("   linear: %f\n", pow_lin(3, 14));
+    printf("   log   : %f\n", pow_log(3, 14));
 
     printf("\n2^10\n");
-    printf("   libc: %f\n", pow_libc(2, 10));
-    printf("   lin:  %f\n", pow_lin(2, 10));
-    printf("   log:  %f\n", pow_log(2, 10));
+    printf("   libc  : %f\n", pow_libc(2, 10));
+    printf("   linear: %f\n", pow_lin(2, 10));
+    printf("   log   : %f\n", pow_log(2, 10));
 
     printf("\n##### Performance Measurement #####\n");
 
